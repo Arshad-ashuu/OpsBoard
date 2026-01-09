@@ -1,0 +1,52 @@
+# version: "3.8"
+
+# services:
+#   db:
+#     image: postgres:15
+#     container_name: opsboard-db
+#     environment:
+#       POSTGRES_USER: opsuser
+#       POSTGRES_PASSWORD: opspass
+#       POSTGRES_DB: opsboard
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+
+#   app:
+#     build: .
+#     container_name: opsboard-app
+#     ports:
+#       - "4000:4000"
+#     env_file:
+#       - .env
+#     depends_on:
+#       - db
+
+# volumes:
+#   pgdata:
+
+#--------------------------
+services:
+  db:
+    image: postgres:15
+    container_name: opsboard-db
+    environment:
+      POSTGRES_USER: opsuser
+      POSTGRES_PASSWORD: opspass
+      POSTGRES_DB: opsboard
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: opsboard-app
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env.docker
+    depends_on:
+      - db
+
+volumes:
+  pgdata:

@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id            String   @id @default(uuid())
+  name          String
+  environment   String
+  url           String
+  status        String   @default("UNKNOWN")
+  failureCount  Int      @default(0)
+  lastCheckedAt DateTime?
+  createdAt     DateTime @default(now())
+}
+
+model AlertEmail {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+

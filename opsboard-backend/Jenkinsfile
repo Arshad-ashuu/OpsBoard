@@ -1,0 +1,19 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps { checkout scm }
+    }
+
+    stage('Install') {
+      steps { sh 'bun install' }
+    }
+
+    stage('Smoke Test') {
+      steps {
+        sh 'bun run index.ts & sleep 5'
+      }
+    }
+  }
+}
