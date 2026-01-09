@@ -1,0 +1,364 @@
+:root {
+  --bg: #050807;
+  --panel: #0f1a14;
+  --panel-soft: #0b120e;
+  --border: #1f3d2b;
+  --green: #00e676;
+  --green-dark: #00c853;
+  --red: #ff5252;
+  --text: #e6fff2;
+  --muted: #9fbfb0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0f1a14, var(--bg));
+  color: var(--text);
+}
+
+/* ---------- LAYOUT ---------- */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 28px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  background: linear-gradient(180deg, rgba(5, 8, 7, 0.9), rgba(5, 8, 7, 0.7));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  color: var(--green);
+}
+
+/* ---------- BUTTONS ---------- */
+
+button {
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  border: none;
+  color: #002b18;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* ---------- INPUTS ---------- */
+
+input,
+select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* ---------- LIVE DOT ---------- */
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.live {
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(0, 230, 118, 0.8);
+}
+
+/* ---------- CARDS ---------- */
+
+.card {
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* ---------- KPI CARDS ---------- */
+
+.kpis {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* prevents overflow/overlap */
+}
+
+.kpi {
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  min-width: 220px; /* keeps cards readable when wrapping */
+  flex: 1; /* distributes space evenly */
+}
+
+.kpi.ok {
+  background: var(--panel-soft);
+}
+
+.kpi.up {
+  background: rgba(0, 230, 118, 0.08);
+}
+
+.kpi.down {
+  background: rgba(255, 82, 82, 0.08);
+}
+
+.kpi-title {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.kpi-value {
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+/* ---------- REGISTER SERVICE ---------- */
+
+.register .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.register input,
+.register select {
+  min-width: 200px;
+}
+
+/* ---------- TABLE ---------- */
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  text-align: left;
+  font-size: 12px;
+  color: #8affc1;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 6px;
+}
+
+.table td {
+  padding: 12px 6px;
+  border-bottom: 1px solid #0f2a1b;
+  font-size: 14px;
+}
+
+.table tbody tr:hover {
+  background: rgba(0, 230, 118, 0.06);
+}
+
+.table tbody tr.sev {
+  box-shadow: inset 3px 0 0 var(--red);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------- BADGES ---------- */
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.badge-up {
+  color: var(--green);
+  background: rgba(0, 230, 118, 0.15);
+}
+
+.badge-down {
+  color: var(--red);
+  background: rgba(255, 82, 82, 0.15);
+}
+
+/* ---------- STATES ---------- */
+
+.empty {
+  text-align: center;
+  opacity: 0.7;
+  padding: 18px;
+}
+
+/* ---------- REGISTER + SUMMARY ROW ---------- */
+
+.top-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.summary-side {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Compact KPI cards */
+.kpis.compact {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kpis.compact .kpi {
+  padding: 14px;
+  min-width: 180px; /* avoids squishing in compact mode */
+  flex: 1;
+}
+
+.kpis.compact .kpi-value {
+  font-size: 18px;
+}
+
+/* ---------- SUMMARY UPTIME ---------- */
+
+.summary-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+
+  flex-wrap: wrap;
+  
+  /* prevents overflow on narrow widths */
+}
+
+.summary-uptime {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+    min-width: 30%;
+    margin-top: 8px;
+}
+
+.summary-uptime .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.uptime-chart.summary-chart {
+  gap: 4px;
+}
+
+.uptime-chart.summary-chart .uptime-bar {
+  width: 10px;
+  height: 16px;
+}
+
+/* ---------- UPTIME SUMMARY BARS ---------- */
+
+.uptime-chart {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.uptime-bar {
+  width: 10px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.uptime-bar.up {
+  background: linear-gradient(180deg, #00e676, #00c853);
+}
+
+.uptime-bar.down {
+  background: linear-gradient(180deg, #ff5252, #e43532);
+}
+
+.uptime-bar.idle {
+  background: #274e37;
+  opacity: 0.4;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .top-section {
+    grid-template-columns: 1fr; /* stack register + summary */
+  }
+
+  .kpis.compact {
+    flex-direction: column; /* stack compact KPIs */
+  }
+}
+
+@media (max-width: 768px) {
+  .kpis {
+    flex-direction: column; /* stack KPIs */
+  }
+
+  .register .row {
+    flex-direction: column; /* stack inputs */
+  }
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
