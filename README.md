@@ -302,36 +302,6 @@ model AlertEmail {
   createdAt DateTime @default(now())
 }
 ```
-
----
-
-## 🧠 Design Decisions
-
-### Why Bun?
-- **3x faster** than Node.js for I/O operations
-- Built-in TypeScript support (no configuration needed)
-- Native test runner and bundler included
-- Smaller Docker image sizes
-
-### Alert Strategy
-- **State-Change-Only Alerts** prevent notification fatigue
-- Email recipients stored in DB for dynamic management
-- Failure count tracking enables escalation policies (future)
-
-### Health Check Implementation
-- Backend scheduler ensures checks run independently of UI
-- Configurable intervals prevent API rate limiting
-- Timeout handling prevents hanging requests
-- Retry logic with exponential backoff (coming soon)
-
-### Frontend Architecture
-- No auto-refresh to reduce server load
-- Manual refresh gives users control
-- Optimistic UI updates for better UX
-- Filter/sort without re-fetching data
-
----
-
 ## 🐳 Docker Configuration
 
 ### Production Deployment
@@ -365,100 +335,6 @@ volumes:
   postgres_data:  # Persists database across container restarts
 ```
 
----
-
-## 📈 Scaling Considerations
-
-### Horizontal Scaling
-- Stateless API design enables multi-instance deployment
-- Use external cron service (e.g., Kubernetes CronJob) for health checks
-- Implement Redis for shared state across instances
-
-### Performance Optimization
-- Add database indexes on `status`, `lastChecked`
-- Implement connection pooling (Prisma handles this)
-- Cache frequent queries with Redis
-- Rate limit API endpoints
-
-### High Availability
-- Run multiple backend replicas behind load balancer
-- Use PostgreSQL replication for database redundancy
-- Implement circuit breakers for external service calls
-
----
-
-## 🔮 Roadmap
-
-### Phase 1 (Current)
-- [x] HTTP health checks
-- [x] Email alerts on state change
-- [x] Multi-service dashboard
-- [x] Docker deployment
-
-### Phase 2 (In Progress)
-- [ ] Slack/Discord webhook integration
-- [ ] Alert cooldown periods
-- [ ] Service-specific check intervals
-- [ ] Alert history/audit logs
-
-### Phase 3 (Planned)
-- [ ] TCP/UDP port monitoring
-- [ ] SSL certificate expiry tracking
-- [ ] Response time trending
-- [ ] Custom alert rules engine
-- [ ] Multi-user authentication
-- [ ] Team/organization support
-
-### Phase 4 (Future)
-- [ ] Metrics dashboard (Prometheus/Grafana)
-- [ ] Mobile app (React Native)
-- [ ] On-call rotation management
-- [ ] Incident timeline builder
-
----
-
-## 🎓 Learning & Interview Talking Points
-
-This project demonstrates:
-
-✅ **Backend Engineering**
-- RESTful API design with Express
-- Database modeling with Prisma ORM
-- Background job scheduling
-- Error handling and logging
-
-✅ **DevOps Practices**
-- Container orchestration with Docker Compose
-- Database migrations in production
-- Environment-based configuration
-- Health check endpoints for monitoring
-
-✅ **System Design**
-- State management patterns
-- Event-driven alerting system
-- Scalability considerations
-- Database schema optimization
-
-✅ **Frontend Development**
-- React hooks and functional components
-- API integration patterns
-- Real-time UI updates
-- Responsive design principles
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -470,9 +346,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Arshad Mohammad**  
 Backend Engineer & DevOps Enthusiast
 
-- GitHub: [@your-username](https://github.com/your-username)
-- Email: mohammadarshad01474@gmail.com
-- LinkedIn: [Your Profile](https://linkedin.com/in/your-profile)
+- GitHub: [@your-username](https://github.com/Arshad-ashuu)
 
 ---
 
@@ -488,6 +362,6 @@ Backend Engineer & DevOps Enthusiast
 
 **⭐ Star this repository if you find it helpful!**
 
-Made with ❤️ for the DevOps community
+Made with ❤️ for the Fun DevOps
 
 </div>
