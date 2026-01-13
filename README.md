@@ -18,6 +18,11 @@
 
 ---
 
+<img width="1920" height="1080" alt="Screenshot 2026-01-10 005105" src="https://github.com/user-attachments/assets/47ebc585-6b6b-4983-bf6b-abefba8df230" />
+
+
+---
+
 ## 📖 Overview
 
 OpsBoard is a **lightweight service monitoring platform** designed for DevOps teams who need reliable uptime tracking without the noise. It continuously monitors your services, provides real-time visibility through a sleek dashboard, and sends intelligent email alerts only when service states actually change.
