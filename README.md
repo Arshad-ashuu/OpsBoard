@@ -19,8 +19,7 @@
 
 ---
 
-<img width="1920" height="1080" alt="Screenshot 2026-01-10 005105" src="https://github.com/user-attachments/assets/47ebc585-6b6b-4983-bf6b-abefba8df230" />
-
+<img width="1259" height="865" alt="OpsBoard" src="https://github.com/user-attachments/assets/1d7f5341-d3e1-41d6-abff-dd74ed718be7" />
 
 ---
 
